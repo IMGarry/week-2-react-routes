@@ -10,6 +10,8 @@ import store, { history } from '../redux'
 
 import Home from '../components/home'
 import DummyView from '../components/dummy-view'
+import Main from '../components/main'
+import Profile from '../components/profile'
 import NotFound from '../components/404'
 
 import Startup from './startup'
@@ -84,6 +86,9 @@ export default (props) => {
           <Switch>
             <Route exact path="/" component={() => <DummyView />} />
             <Route exact path="/dashboard" component={() => <Home />} />
+            <Route exact path="/dashboard/profile/:user" component={() => <Profile />} />
+            <Route exact path="/dashboard/main" component={() => <Main />} />
+            <Route exact path="/dashboard/*" component={() => <Home />} />
             <PrivateRouteConnected exact path="/hidden-route" component={() => <DummyView />} />
             <Route component={() => <NotFound />} />
           </Switch>
